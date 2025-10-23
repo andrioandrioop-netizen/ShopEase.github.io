@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEase – Home</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f3f3f3;
+  }
+
+  /* Header */
+  header {
+    background-color: #232f3e;
+    color: white;
+    padding: 10px 20px;
+  }
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+  .amazon-text { color: #ff9900; }
+  .clone-text { color: white; }
+
+.search-area {
+   display: flex;
+   align-items: center;
+   gap: 5px;
+}
+
+
+.search-area input[type="text"] {
+    padding: 6px;
+    width: 200px;
+    border: none;
+    border-radius: 4px;
+}
+.search-area button {
+    padding: 6px 10px;
+    background-color: #ff9900;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+
+.search-area button:hover {
+    background-color: #e68a00;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 8px;
+    font-size: 0.95em;
+}
+
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+   .topbar {
+      flex-direction:column;
+      align-items: flex-start;
+}
+    nav{
+        margin-top: 10px;
+}
+}
+
+  /* Hero section */
+  .hero {
+    background-image: url("images (26).jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #232f3e;
+    margin: 30px 0 10px 20px;
+    border-left: 5px solid #ff9900;
+    padding-left: 10px;
+  }
+
+  /* Product rows */
+  .product-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: white;
+    padding: 20px;
+  }
+
+  .product {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    margin: 10px;
+    background-color: #fafafa;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  }
+
+  .product img {
+    width: 100%;
+    border-radius: 6px;
+  }
+
+  footer {
+    background-color: #232f3e;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  .socials a {
+    color: #ff9900;
+    text-decoration: none;
+    margin: 0 8px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+  <h1><span class="amazon-text">ShopEase</span><span class="clone-text">.Clone</span></h1>
+  <div class="search-area">
+    <input type="text" id="search" placeholder="Search products...">
+    <button id="search-btn">Search</button>
+</div>
+ <nav>
+  <a href="index.html">Home</a>
+  <a href="products.html">Products</a>
+  <a href="cart.html">Cart</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+<div class="hero">
+  Welcome to ShopEase — Smart Shopping Starts Here!
+</div>
+
+<h2 class="section-title">Electronics</h2>
+<div class="product-row">
+  <div class="product">
+    <img src="IMG-20251013-WA0012.jpg" alt="Wireless Headphones">
+    <h3>Wireless Headphones</h3>
+    <p>₹1,999</p>
+  </div>
+  <div class="product">
+    <img src="IMG-20251013-WA0015.jpg" alt="Smart Watch">
+    <h3>Smart Watch</h3>
+    <p>₹2,499</p>
+  </div>
+  <div class="product">
+    <img src="IMG-20251013-WA0014.jpg" alt="Bluetooth Speaker">
+    <h3>Bluetooth Speaker</h3>
+    <p>₹1,499</p>
+  </div>
+</div>
+
+<h2 class="section-title">Home & Kitchen</h2>
+<div class="product-row">
+  <div class="product">
+    <img src="IMG-20251020-WA0040.jpg" alt="LED Lamp">
+    <h3>LED Lamp</h3>
+    <p>₹899</p>
+  </div>
+  <div class="product">
+    <img src="IMG-20251020-WA0039.jpg" alt="Mixer Grinder">
+    <h3>Mixer Grinder</h3>
+    <p>₹2,999</p>
+  </div>
+</div>
+
+<footer>
+  <p>Contact us: shopease.support@gmail.com</p>
+  <p>Customer Service: 1800-123-456</p>
+  <div class="socials">
+    <a href="#">Facebook</a> | <a href="#">Twitter</a> | <a href="#">Instagram</a>
+  </div>
+  <p>© 2025 ShopEase Clone</p>
+</footer>
+
+<script>
+document.getElementById("search-btn").addEventListener("click", () => {
+  const query = document.getElementById("search").value.toLowerCase();
+  document.querySelectorAll(".product").forEach(item => {
+    const name = item.querySelector("h3").textContent.toLowerCase();
+    item.style.display = name.includes(query) ? "block" : "none";
+  });
+});
+</script>
+
+</body>
+</html>
